@@ -32,3 +32,4 @@ else
 	Available Themes :
 	--nordic-material
 	EOF
+fi
