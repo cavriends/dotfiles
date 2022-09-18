@@ -195,5 +195,4 @@ bindsym XF86MonBrightnessUp exec "brightnessctl set +10%"
 bindsym XF86MonBrightnessDown exec "brightnessctl set 10%-"
 
 exec_always --no-startup-id feh --bg-scale $HOME/Pictures/wallpaper-3.png
-exec_always --no-startup-id  $HOME/.config/polybar/launch.sh --material &
-
+exec_always --no-startup-id  $HOME/.config/polybar/launch.sh --nordic-material &
