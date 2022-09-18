@@ -186,7 +186,7 @@ bindsym $mod+r mode "resize"
 #}
 
 # Custom bindings
-bindsym $mod+space exec .config/polybar/material/scripts/launcher.sh  
+bindsym $mod+space exec .config/polybar/nordic-material/scripts/launcher.sh
 bindsym Shift+l exec "i3lock -i $HOME/Pictures/wallpaper-2.png"
 bindsym $mod+b exec firefox
 
