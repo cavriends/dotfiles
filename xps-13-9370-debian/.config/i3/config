@@ -190,6 +190,9 @@ bindsym $mod+space exec .config/polybar/material/scripts/launcher.sh
 bindsym Shift+l exec "i3lock -i $HOME/Pictures/wallpaper-2.png"
 bindsym $mod+b exec firefox
 
+# Brightness control
+bindsym XF86MonBrightnessUp exec "brightnessctl set +10%"
+bindsym XF86MonBrightnessDown exec "brightnessctl set 10%-"
 
 exec_always --no-startup-id feh --bg-scale $HOME/Pictures/wallpaper-3.png
 exec_always --no-startup-id  $HOME/.config/polybar/launch.sh --material &
