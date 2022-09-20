@@ -131,8 +131,8 @@ click-left = firefox &
 [module/settings]
 inherit = module/apps
 content = 
-click-left = xfce4-settings-manager &
-; click-right = lxappearance &
+; click-left = xfce4-settings-manager &
+; click-left = lxappearance &
 
 ;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 
@@ -229,16 +229,5 @@ label-close = 
 ; Optional item separator
 ; Default: none
 label-separator = " | "
-
-
-[module/bluetooth]
-type = custom/script
-exec = ~/.config/polybar/nordic-material/scripts/bluetooth.sh
-interval = 2
-click-left = exec blueman-manager
-click-right = exec ~/.config/polybar/nordic-material/scripts/toggle_bluetooth.sh
-format-padding = 1
-format-background = #1F1F1F
-format-foreground = #FFFFFF
 
 ;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
