@@ -2,7 +2,7 @@
 FROM debian:11.5
 
 RUN useradd -ms /bin/bash test-user
-USER newuser
-WORKDIR /home/newuser
+USER test-user
+WORKDIR /home/test-user
 
 CMD ["/bin/bash"]
