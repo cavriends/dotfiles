@@ -33,6 +33,10 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet --sm-disable
+exec --no-startup-id blueman-applet
+exec --no-startup-id pasystray
+exec --no-startup-id systemctl --user stop dunst.service
+exec --no-startup-id systemctl --user start xfce4-notifyd
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -151,7 +155,7 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
-
+#
 # resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
@@ -185,14 +189,33 @@ bindsym $mod+r mode "resize"
 #        status_command i3status
 # }
 
-# Custom bindings
-bindsym $mod+space exec .config/polybar/nordic-material/scripts/launcher.sh
-bindsym Shift+Ctrl+l exec "i3lock -i $HOME/Pictures/wallpaper-nord.png"
+# Launch Polybar
+bindsym $mod+space exec --no-startup-id .config/polybar/nordic-material/scripts/launcher.sh
+
+# Set i3-lock
+bindsym Shift+Ctrl+l  exec --no-startup-id "$HOME/.i3/i3lock-multimonitor/lock"
+# bindsym Shift+Ctrl+l exec "i3lock -i $HOME/Pictures/background.png"
+
+# Custom bindings for opening applications
 bindsym $mod+b exec firefox
+bindsym $mod+c exec "code .config/i3/config"
 
 # Brightness control
 bindsym XF86MonBrightnessUp exec "brightnessctl set +10%"
 bindsym XF86MonBrightnessDown exec "brightnessctl set 10%-"
 
-exec_always --no-startup-id feh --bg-scale $HOME/Pictures/wallpaper-nord.png --bg-fill $HOME/Pictures/wallpaper-nord.png
+# Start compositor (eliminate screen tearing and allow opacity)
+exec --no-startup-id picom --vsync --backend glx &
+
+# Minimal borders
+default_border pixel 2
+
+# Start work related applications, fetch latest master
+for_window [class="Google-chrome"] move to workspace $ws4
+for_window [class="teams-for-linux"] move to workspace $ws4
+exec --no-startup-id "/opt/google/chrome/google-chrome --profile-directory=Default --app-id=faolnafnngnfdaknnbpnkhgohbobgegn %U"
+exec --no-startup-id "flatpak run com.github.IsmaelMartinez.teams_for_linux"
+
+exec_always --no-startup-id "wd ds; git pull; git switch master; git pull"
+exec_always --no-startup-id feh --bg-scale $HOME/Pictures/background.png --bg-fill $HOME/Pictures/background.png
 exec_always --no-startup-id  $HOME/.config/polybar/launch.sh --nordic-material
