@@ -6,16 +6,16 @@ cp sources.list /etc/apt/sources.list
 
 username=$(id -u -n 1000)
 
-apt update
+apt update -y
 
 # Install relevant packages (i.e. window manager, display manager, networking and applets)
-apt install wget unzip picom i3 polybar sddm rofi kitty neofetch git lxappearance brightnessctl feh fonts-font-awesome ttf-mscorefonts-installer
-apt install nm-applet blueman pasystray pavucontrol network-manager xfce4-notifyd flatpak arandr -y
+apt install -y wget unzip picom i3 polybar sddm rofi kitty neofetch git lxappearance brightnessctl feh fonts-font-awesome ttf-mscorefonts-installer
+apt install -y nm-applet blueman pasystray pavucontrol network-manager xfce4-notifyd flatpak arandr
 
 # Replace PipeWire stable version with testing
-apt install pipewire/bullseye-backports -y
-apt install libspa-0.2-bluetooth/bullseye-backports -y
-apt remove pulseaudio-module-bluetooth -y
+apt install -y pipewire/bullseye-backports
+apt install -y libspa-0.2-bluetooth/bullseye-backports
+apt remove -y pulseaudio-module-bluetooth
 
 # Replace PulseAudio with PipeWire / WirePlumber
 touch /etc/pipewire/media-session.d/with-pulseaudio
@@ -25,7 +25,7 @@ cp /usr/share/doc/pipewire/examples/systemd/user/pipewire-pulse.* /etc/systemd/u
 mkdir -p /usr/share/sddm/themes
 
 # Set SDDM theme
-apt install --no-install-recommends sddm qml-module-qtquick-layouts qml-module-qtgraphicaleffects qml-module-qtquick-controls2 libqt5svg5
+apt install -y --no-install-recommends sddm qml-module-qtquick-layouts qml-module-qtgraphicaleffects qml-module-qtquick-controls2 libqt5svg5
 git clone https://github.com/Kangie/sddm-sugar-candy /usr/share/sddm/themes/
 
 # Config userdir
