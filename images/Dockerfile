@@ -1,6 +1,8 @@
 # Container image that runs your code
 FROM debian:11.5
 
+RUN apt install git
+
 RUN useradd -ms /bin/bash test-user
 USER test-user
 WORKDIR /home/test-user
