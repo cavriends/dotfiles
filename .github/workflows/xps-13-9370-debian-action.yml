@@ -45,6 +45,6 @@ jobs:
       - run: echo "🍏 This job's status is ${{ job.status }}."
       - name: Test user.sh
         run: |
-          USER test-user
+          su test-user
           chmod +x xps-13-9370-debian/user.sh
           ./xps-13-9370-debian/user.sh
