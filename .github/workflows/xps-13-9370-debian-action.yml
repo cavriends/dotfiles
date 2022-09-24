@@ -14,8 +14,8 @@ jobs:
       - name: Test root.sh
         run: |
           sudo su
-          ./root.sh
+          ./xps-13-9370-debian/root.sh
       - run: echo "🍏 This job's status is ${{ job.status }}."
       - name: Test user.sh
         run: |
-          ./user.sh
+          ./xps-13-9370-debian/user.sh
