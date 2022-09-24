@@ -5,7 +5,6 @@ cp /etc/apt/sources.list /etc/apt/sources.list.bak
 cp sources.list /etc/apt/sources.list
 
 username=$(id -u -n 1000)
-builddir=$(pwd)
 
 apt update
 
@@ -18,10 +17,18 @@ apt install pipewire/bullseye-backports -y
 apt install libspa-0.2-bluetooth/bullseye-backports -y
 apt remove pulseaudio-module-bluetooth -y
 
-# Replace PulseAudi with PipeWire / WirePlumber
+# Replace PulseAudio with PipeWire / WirePlumber
 touch /etc/pipewire/media-session.d/with-pulseaudio
 cp /usr/share/doc/pipewire/examples/systemd/user/pipewire-pulse.* /etc/systemd/user/
 
+# Create folder for themes
+mkdir -p /usr/share/sddm/themes
+
+# Set SDDM theme
+apt install --no-install-recommends sddm qml-module-qtquick-layouts qml-module-qtgraphicaleffects qml-module-qtquick-controls2 libqt5svg5
+git clone https://github.com/Kangie/sddm-sugar-candy /usr/share/sddm/themes/
+
+# Config userdir
 mkdir -p /home/$username/.config
 mkdir -p /home/$username/.fonts
 mkdir -p /home$username/Pictures
@@ -29,6 +36,9 @@ mkdir -p /home/$username/Downloads
 mkdir -p /home/$username/.themes
 mkdir -p /home/$username/.i3
 mkdir -p /home/$username/.themes/zsh
+
+# Install Nordic theme for lxappearance
+git clone git@github.com:EliverLara/Nordic.git /home/$username/.themes/
 
 # Copy configs and set backgrounds
 git clone https://github.com/cavriends/dotfiles
@@ -41,9 +51,5 @@ cp dotfiles/xps-13-9370-debian/sddm.conf /etc/sddm.conf
 apt install scrot imagemagick i3lock
 git clone git@github.com:ShikherVerma/i3lock-multimonitor.git /home/$username/.i3/
 
+# Set permissions
 chown -R $username:$username /home/$username
-
-# Set SDDM theme
-apt install --no-install-recommends sddm qml-module-qtquick-layouts qml-module-qtgraphicaleffects qml-module-qtquick-controls2 libqt5svg5
-mkdir -p /usr/share/sddm/themes
-git clone https://github.com/Kangie/sddm-sugar-candy /usr/share/sddm/themes/
