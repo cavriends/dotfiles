@@ -48,7 +48,7 @@ cp dotfiles/xps-13-9370-debian/sddm.conf /etc/sddm.conf
 
 # Install i3lock-multimonitor
 apt install scrot imagemagick i3lock
-git clone git@github.com:ShikherVerma/i3lock-multimonitor.git /home/$username/.i3/
+git clone git@github.com:ShikherVerma/i3lock-multimonitor.git /home/$username/.i3
 
 # Set permissions
 chown -R $username:$username /home/$username
