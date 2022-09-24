@@ -9,7 +9,7 @@ username=$(id -u -n 1000)
 apt update
 
 # Install relevant packages (i.e. window manager, display manager, networking and applets)
-apt install wget unzip picom i3 polybar sddm rofi kitty neofetch git lxappearance brightnessctl feh fonts-awesome ttf-mscorefonts-installer
+apt install wget unzip picom i3 polybar sddm rofi kitty neofetch git lxappearance brightnessctl feh fonts-font-awesome ttf-mscorefonts-installer
 apt install nm-applet blueman pasystray pavucontrol network-manager xfce4-notifyd flatpak arandr -y
 
 # Replace PipeWire stable version with testing
