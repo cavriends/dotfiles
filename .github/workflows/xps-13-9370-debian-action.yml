@@ -23,7 +23,7 @@ jobs:
         tags: ${{ secrets.DOCKER_HUB_USERNAME }}/debian-xps-13:latest
         cache-from: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/debian-xps-13:buildcache
         cache-to: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/debian-xps-13:buildcache,mode=max
-  Test .sh files:
+  Test sh files:
     runs-on: ubuntu-latest
     steps:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
