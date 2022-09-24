@@ -40,7 +40,6 @@ jobs:
       - run: echo "🖥️ The workflow is now ready to test your code on the runner."
       - name: Test root.sh
         run: |
-          sudo su
           chmod +x xps-13-9370-debian/root.sh
           ./xps-13-9370-debian/root.sh
       - run: echo "🍏 This job's status is ${{ job.status }}."
