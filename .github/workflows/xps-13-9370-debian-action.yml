@@ -42,9 +42,9 @@ jobs:
         run: |
           chmod +x xps-13-9370-debian/root.sh
           ./xps-13-9370-debian/root.sh
-      - run: echo "🍏 This job's status is ${{ job.status }}."
       - name: Test user.sh
         run: |
           su test-user
           chmod +x xps-13-9370-debian/user.sh
           ./xps-13-9370-debian/user.sh
+      - run: echo "🍏 This job's status is ${{ job.status }}."
