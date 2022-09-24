@@ -21,7 +21,7 @@ jobs:
         file: ./images/Dockerfile
         builder: ${{ steps.buildx.outputs.name }}
         push: true
-        tags: ghrc.io/${{ github.repository_owner }}/debian-xps-13:latest
+        tags: ghcr.io/${{ github.repository_owner }}/debian-xps-13:latest
   test-sh-files:
     needs: build-and-push-image
     runs-on: ubuntu-latest
