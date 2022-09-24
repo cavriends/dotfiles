@@ -1,7 +1,7 @@
 # Container image that runs your code
 FROM debian:11.5
 
-RUN apt install git
+RUN apt-get install git -y
 
 RUN useradd -ms /bin/bash test-user
 USER test-user
