@@ -33,9 +33,8 @@ mkdir -p /home/$username/.config
 mkdir -p /home/$username/.fonts
 mkdir -p /home$username/Pictures
 mkdir -p /home/$username/Downloads
-mkdir -p /home/$username/.themes
-mkdir -p /home/$username/.i3
 mkdir -p /home/$username/.themes/zsh
+mkdir -p /home/$username/.i3
 
 # Install Nordic theme for lxappearance
 git clone git@github.com:EliverLara/Nordic.git /home/$username/.themes/
