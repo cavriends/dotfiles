@@ -10,7 +10,7 @@ builddir=$(pwd)
 apt update
 
 # Install relevant packages (i.e. window manager, display manager, networking and applets)
-apt install unzip picom i3 polybar sddm rofi kitty neofetch git lxappearance brightnessctl feh fonts-awesome ttf-mscorefonts-installer
+apt install wget unzip picom i3 polybar sddm rofi kitty neofetch git lxappearance brightnessctl feh fonts-awesome ttf-mscorefonts-installer
 apt install nm-applet blueman pasystray pavucontrol network-manager xfce4-notifyd flatpak arandr -y
 
 # Replace PipeWire stable version with testing
@@ -28,6 +28,7 @@ mkdir -p /home$username/Pictures
 mkdir -p /home/$username/Downloads
 mkdir -p /home/$username/.themes
 mkdir -p /home/$username/.i3
+mkdir -p /home/$username/.themes/zsh
 
 # Copy configs and set backgrounds
 git clone https://github.com/cavriends/dotfiles
