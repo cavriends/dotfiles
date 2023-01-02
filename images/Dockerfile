@@ -1,9 +1,6 @@
-# Container image that runs your code
-FROM debian:11.5
-
-ENV DEBIAN_FRONTEND=noninteractive
-RUN apt-get -y update && apt-get -y install git
-
-RUN useradd -ms /bin/bash test-user
-
-CMD ["/bin/bash"]
+cmake -S . -B YOUR_BUILD_DIRECTORY -G Ninja \
+    -DCEF_ROOT_DIR="../obs-build-dependencies/cef_binary_4638_linux64" \
+    -DENABLE_PIPEWIRE=OFF \
+    -DENABLE_WAYLAND=OFF \
+    -DENABLE_BROWSER=OFF \
+    -DENABLE_AJA=0
