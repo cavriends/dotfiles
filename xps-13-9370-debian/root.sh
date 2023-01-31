@@ -41,8 +41,8 @@ git clone git@github.com:EliverLara/Nordic.git /home/$username/.themes/
 
 # Copy configs and set backgrounds
 git clone https://github.com/cavriends/dotfiles
-cp -R dotfiles/xps-13-9370-debian/.config/* /home/$username/.config/
-cp -R dotfiles/xps-13-9370-debian/.fonts/* /home/$username/.fonts/
+cp -r dotfiles/xps-13-9370-debian/.config/. /home/$username/.config/
+cp -r dotfiles/xps-13-9370-debian/.fonts/. /home/$username/.fonts/
 cp dotfiles/xps-13-9370-debian/background.jpg /home/$username/Pictures /usr/share/sddm/themes/sddm-sugar-candy/Backgrounds
 cp dotfiles/xps-13-9370-debian/sddm.conf /etc/sddm.conf
 
